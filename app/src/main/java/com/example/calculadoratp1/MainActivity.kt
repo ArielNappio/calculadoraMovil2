@@ -27,20 +27,58 @@ class MainActivity : AppCompatActivity()  {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        suma()
+        resta()
+        division()
+        multiplicacion()
+    }
 
-      binding.SUMA.setOnClickListener{
-          nro1 = binding.valorUno.text.toString().toDouble()
-          nro2 = binding.valorDos.text.toString().toDouble()
-          result = nro1 + nro2
-          binding.resultado.setText(result.toString())
-      }
+    private fun multiplicacion() {
+        binding.MULTIPLICACION.setOnClickListener{
+            nro1 = binding.valorUno.text.toString().toDouble()
+            nro2 = binding.valorDos.text.toString().toDouble()
+            result = (nro1 * nro2)
 
-      /*
-      binding.SUMA.setOnClickListener {
-          val uno:Int = Integer.parseInt(primerCampo.text.toString())
-          val dos:Int = Integer.parseInt(segundoCampo.text.toString())
-          result.setText(uno+dos)
-      }
-*/
+            binding.boton.setOnClickListener {
+                binding.resultado.setText(result.toString())
+            }
+        }
+    }
+
+    private fun division() {
+        binding.DIVISION.setOnClickListener{
+            nro1 = binding.valorUno.text.toString().toDouble()
+            nro2 = binding.valorDos.text.toString().toDouble()
+            result = (nro1 / nro2)
+
+            binding.boton.setOnClickListener {
+                binding.resultado.setText(result.toString())
+            }
+        }
+    }
+
+    private fun resta() {
+        binding.RESTA.setOnClickListener{
+            nro1 = binding.valorUno.text.toString().toDouble()
+            nro2 = binding.valorDos.text.toString().toDouble()
+            result = nro1 - nro2
+
+            binding.boton.setOnClickListener {
+                binding.resultado.setText(result.toString())
+            }
+        }
+    }
+
+
+    private  fun suma() {
+        binding.SUMA.setOnClickListener {
+            nro1 = binding.valorUno.text.toString().toDouble()
+            nro2 = binding.valorDos.text.toString().toDouble()
+            result = nro1 + nro2
+
+            binding.boton.setOnClickListener {
+                binding.resultado.setText(result.toString())
+            }
+        }
     }
 }
