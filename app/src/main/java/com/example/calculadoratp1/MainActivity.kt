@@ -16,11 +16,10 @@ class MainActivity : AppCompatActivity()  {
 
 
     private lateinit var binding :ActivityMainBinding
-   private lateinit var primerCampo:EditText
-    private lateinit var segundoCampo:EditText
-    private lateinit var result:EditText
-    private lateinit var sumaBtn:Button
 
+    private var nro1: Double = 0.0
+    private var nro2: Double = 0.0
+    private var result: Double = 0.0
 
      val vm: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +27,12 @@ class MainActivity : AppCompatActivity()  {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-      //primerCampo = binding.valorUno
-      //segundoCampo = binding.valorDos
-
-      //sumaBtn = findViewById(R.id.SUMA)
 
       binding.SUMA.setOnClickListener{
-          val uno:Int = Integer.parseInt( binding.valorUno.text.toString())
-          val dos:Int = Integer.parseInt(binding.valorDos.text.toString())
-          binding.resultado.setText(uno+dos)
+          nro1 = binding.valorUno.text.toString().toDouble()
+          nro2 = binding.valorDos.text.toString().toDouble()
+          result = nro1 + nro2
+          binding.resultado.setText(result.toString())
       }
 
       /*
