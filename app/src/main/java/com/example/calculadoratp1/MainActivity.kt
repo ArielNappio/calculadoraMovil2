@@ -1,46 +1,84 @@
 package com.example.calculadoratp1
 
-import android.icu.number.IntegerWidth
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import androidx.activity.viewModels
-import androidx.core.view.ViewCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.example.calculadoratp1.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity()  {
+class MainActivity : AppCompatActivity() {
 
 
-    private lateinit var binding :ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     private var nro1: Double = 0.0
     private var nro2: Double = 0.0
     private var result: Double = 0.0
+    private val sb = StringBuilder()
 
-     val vm: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.buttomSuma.setOnClickListener {
+            evaluateExpression("+", clear = true)
+        }
 
-      binding.SUMA.setOnClickListener{
-          nro1 = binding.valorUno.text.toString().toDouble()
-          nro2 = binding.valorDos.text.toString().toDouble()
-          result = nro1 + nro2
-          binding.resultado.setText(result.toString())
-      }
+        binding.buttomResta.setOnClickListener {
+            evaluateExpression("-", clear = true)
+        }
 
-      /*
-      binding.SUMA.setOnClickListener {
-          val uno:Int = Integer.parseInt(primerCampo.text.toString())
-          val dos:Int = Integer.parseInt(segundoCampo.text.toString())
-          result.setText(uno+dos)
-      }
-*/
+        binding.buttomMultiplicacion.setOnClickListener {
+            evaluateExpression("*", clear = true)
+        }
+
+        binding.buttomDivision.setOnClickListener {
+            evaluateExpression("/", clear = true)
+        }
+
+        /*
+        binding.textResultado.setOnClickListener{
+            binding.textResultado.setText(result.toString())
+        }*/
+
+        binding.buttom1.setOnClickListener{
+            evaluateExpression("1", clear = true)
+        }
+    }
+
+    /*
+    fun sumar(){
+        this.nro1 = binding.valorUno.text.toString().toDouble()
+        this.nro2 = binding.valorDos.text.toString().toDouble()
+        result = this.nro1 + this.nro2
+    }
+
+    fun restar(){
+        this.nro1 = binding.valorUno.text.toString().toDouble()
+        this.nro2 = binding.valorDos.text.toString().toDouble()
+        result = this.nro1 - this.nro2
+    }
+
+    fun multiplicar(){
+        this.nro1 = binding.valorUno.text.toString().toDouble()
+        this.nro2 = binding.valorDos.text.toString().toDouble()
+        result = this.nro1 * this.nro2
+    }
+
+    fun dividir(){
+        this.nro1 = binding.valorUno.text.toString().toDouble()
+        this.nro2 = binding.valorDos.text.toString().toDouble()
+        result = this.nro1 / this.nro2
+    }*/
+
+    fun evaluateExpression(string: String, clear: Boolean) {
+        if(clear) {
+
+            binding.textResultado.setText("")
+            sb.append(string)
+        } else {
+            sb.append(binding.textResultado.text)
+            sb.append(string)
+            binding.textResultado.setText("")
+        }
     }
 }
