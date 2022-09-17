@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.rotationMatrix
 import com.example.calculadoratp1.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
