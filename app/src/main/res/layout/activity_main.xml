@@ -4,98 +4,211 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_blue"
     tools:context=".ui.view.MainActivity">
 
-    <TextView
-        android:id="@+id/text_result"
-        style="@style/Result_Text"
-        android:layout_width="291dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="148dp"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/light_grey"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/input_nro"
-        style="@style/Input_Text"
-        android:layout_width="388dp"
-        android:layout_height="102dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        <EditText
+            android:id="@+id/input_nro"
+            style="@style/Input_Text" />
+
+        <TextView
+            android:id="@+id/operations"
+            style="@style/Operation_String"/>
+
+        <TextView
+            android:id="@+id/text_result"
+            style="@style/Result_Text" />
+
+    </LinearLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="367dp"
+        app:columnCount="4"
+        app:rowCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttom_division"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/"
-        style="@style/Operators_Button"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttom_multiplication"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        <Button
+            android:id="@+id/buttom_na"
+            style="@style/Operators_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/na"
+            app:layout_column="2"
+            app:layout_row="4"
+            tools:ignore="TextContrastCheck" />
 
-    <Button
-        android:id="@+id/buttom_substraction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        style="@style/Operators_Button"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/buttom_multiplication"
-        app:layout_constraintStart_toEndOf="@+id/buttom_addition"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        <Button
+            android:id="@+id/buttom_na1"
+            style="@style/Operators_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/na"
+            app:layout_column="3"
+            app:layout_row="4"
+            tools:ignore="TextContrastCheck" />
 
-    <Button
-        android:id="@+id/buttom_addition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        style="@style/Operators_Button"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/buttom_substraction"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        <Button
+            android:id="@+id/buttom_cero"
+            style="@style/Operators_Button"
+            android:text="@string/cero"
+            app:layout_column="0"
+            app:layout_row="4"
+            tools:ignore="TextContrastCheck" />
 
-    <Button
-        android:id="@+id/buttom_multiplication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="*"
-        style="@style/Operators_Button"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toStartOf="@+id/buttom_division"
-        app:layout_constraintStart_toEndOf="@+id/buttom_substraction"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        <Button
+            android:id="@+id/buttom_equals"
+            style="@style/Operators_Button"
+            android:text="@string/equals"
+            app:layout_column="3"
+            app:layout_row="3"
+            tools:ignore="TextContrastCheck"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="365dp" />
+        <Button
+            android:id="@+id/buttom_three"
+            style="@style/Operators_Button"
+            android:text="@string/three"
+            app:layout_column="2"
+            app:layout_row="3"
+            tools:ignore="TextContrastCheck" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="271dp" />
+        <Button
+            android:id="@+id/buttom_one"
+            style="@style/Operators_Button"
+            android:text="@string/one"
+            app:layout_column="0"
+            app:layout_row="3"
+            tools:ignore="TextContrastCheck" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="130dp" />
+        <Button
+            android:id="@+id/buttom_two"
+            style="@style/Operators_Button"
+            android:text="@string/two"
+            app:layout_column="1"
+            app:layout_row="3"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_point"
+            style="@style/Operators_Button"
+            android:text="@string/point"
+            app:layout_column="1"
+            app:layout_row="4"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_five"
+            style="@style/Operators_Button"
+            android:text="@string/five"
+            app:layout_column="1"
+            app:layout_row="2"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_four"
+            style="@style/Operators_Button"
+            android:text="@string/four"
+            app:layout_column="0"
+            app:layout_row="2"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_ac"
+            style="@style/Operators_Button"
+            android:text="@string/ac"
+            app:layout_column="0"
+            app:layout_row="0"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_six"
+            style="@style/Operators_Button"
+            android:text="@string/six"
+            app:layout_column="2"
+            app:layout_row="2"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_eight"
+            style="@style/Operators_Button"
+            android:text="@string/eight"
+            app:layout_column="1"
+            app:layout_row="1"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_seven"
+            style="@style/Operators_Button"
+            android:text="@string/seven"
+            app:layout_column="0"
+            app:layout_row="1"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_del"
+            style="@style/Operators_Button"
+            android:text="@string/del"
+            app:layout_column="3"
+            app:layout_row="0"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_nine"
+            style="@style/Operators_Button"
+            android:text="@string/nine"
+            app:layout_column="2"
+            app:layout_row="1"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_addition"
+            style="@style/Operators_Button"
+            android:text="@string/addition"
+            app:layout_column="3"
+            app:layout_row="2"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_substraction"
+            style="@style/Operators_Button"
+            android:text="@string/substraction"
+            app:layout_column="3"
+            app:layout_row="1"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_multiplication"
+            style="@style/Operators_Button"
+            android:text="@string/multiplication"
+            app:layout_column="2"
+            app:layout_row="0"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/buttom_division"
+            style="@style/Operators_Button"
+            android:text="@string/division"
+            app:layout_column="1"
+            app:layout_row="0"
+            tools:ignore="TextContrastCheck" />
+
+    </androidx.gridlayout.widget.GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

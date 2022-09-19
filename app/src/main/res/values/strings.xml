@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CalculadoraTP1</string>
-    <string name="empty_string">No se han ingresado valores</string>
+    <string name="app_name">Calculadora</string>
+    <string name="addition"><b><i>+</i></b></string>
+    <string name="substraction"><b><i>-</i></b></string>
+    <string name="multiplication"><b><i>x</i></b></string>
+    <string name="division"><b><i>÷</i></b></string>
+    <string name="equals"><b><i>=</i></b></string>
+    <string name="point"><b><i>.</i></b></string>
+    <string name="ac"><b><i>AC</i></b></string>
+    <string name="del"><b><i>DEL</i></b></string>
+    <string name="na"><b><i>NA</i></b></string>
+    <string name="cero"><b><i>0</i></b></string>
+    <string name="one"><b><i>1</i></b></string>
+    <string name="two"><b><i>2</i></b></string>
+    <string name="three"><b><i>3</i></b></string>
+    <string name="four"><b><i>4</i></b></string>
+    <string name="five"><b><i>5</i></b></string>
+    <string name="six"><b><i>6</i></b></string>
+    <string name="seven"><b><i>7</i></b></string>
+    <string name="eight"><b><i>8</i></b></string>
+    <string name="nine"><b><i>9</i></b></string>
 </resources>
