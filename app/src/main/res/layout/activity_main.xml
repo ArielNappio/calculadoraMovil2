@@ -11,9 +11,13 @@
         style="@style/Operators_Button"
         android:layout_width="120dp"
         android:layout_height="100dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginEnd="146dp"
         android:text="="
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="380dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/text_result"
@@ -22,20 +26,24 @@
         android:layout_height="69dp"
         android:layout_marginTop="148dp"
         android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
 
     <EditText
         android:id="@+id/input_nro"
         style="@style/Input_Text"
         android:layout_width="388dp"
         android:layout_height="102dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttom_division"
