@@ -13,7 +13,6 @@ class CalculatorProvider {
         operations.add(operation)
     }
 
-    @JvmName("getOperations1")
     fun getOperations():MutableList<CalculatorModel>{
         return operations
     }

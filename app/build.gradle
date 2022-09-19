@@ -54,3 +54,7 @@ android {
         implementation "io.insert-koin:koin-android:3.2.1"
     }
 }
+
+dependencies {
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+}

@@ -9,20 +9,27 @@ import com.example.calculadoratp1.data.model.CalculatorProvider
 import kotlinx.coroutines.launch
 
 class MainViewModel():ViewModel(){
-    init{
-        var actualOperation: CalculatorModel
-    }
 
-    fun onCreate() {
-        viewModelScope.launch {
-            val operationsLd = CalculatorProvider()
+    val results = mutableListOf(0.0)
 
-            if(operationsLd != null){
 
+    fun calcular(nro: Double, operator: String){
+        if(results.isNotEmpty()) {
+            when (operator) {
+                "+" -> {
+                    results.add(results.last() + nro)
+                }
+                "-" -> {
+                    results.add(results.last() - nro)
+                }
+                "*" -> {
+                    results.add(results.last() * nro)
+                }
+                "/" -> {
+                    results.add(results.last() / nro)
+                }
             }
         }
     }
-
-
 
 }

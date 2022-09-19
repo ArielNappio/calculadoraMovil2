@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.MainActivity">
 
-    <Button
-        android:id="@+id/buttom_equals"
-        style="@style/Operators_Button"
-        android:layout_width="120dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="145dp"
-        android:layout_marginEnd="146dp"
-        android:text="="
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
     <TextView
         android:id="@+id/text_result"
         style="@style/Result_Text"
