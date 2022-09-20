@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
+            <TextView
                 android:id="@+id/input_nro"
                 style="@style/Input_Text"
                 android:layout_height="0dp"
@@ -32,7 +32,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/text_result"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_operations"/>
+                app:layout_constraintTop_toBottomOf="@+id/text_operations" />
 
             <TextView
                 android:id="@+id/text_operations"
@@ -63,14 +63,14 @@
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
-        android:layout_height="367dp"
+        android:layout_height="wrap_content"
         app:columnCount="4"
-        app:rowCount="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout"
-        app:orientation="horizontal">
+        app:orientation="horizontal"
+        app:rowCount="5">
 
         <Button
             android:id="@+id/buttom_na"
@@ -106,7 +106,7 @@
             android:text="@string/equals"
             app:layout_column="3"
             app:layout_row="3"
-            tools:ignore="TextContrastCheck"/>
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/buttom_three"

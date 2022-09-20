@@ -1,19 +1,21 @@
 package com.example.calculadoratp1.ui.view
 
+import android.opengl.Visibility
 import android.os.Bundle
-import android.text.Editable
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.calculadoratp1.databinding.ActivityMainBinding
 import com.example.calculadoratp1.ui.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     private val vm: MainViewModel by viewModels()
+
+    private var sb = StringBuilder()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             try{
                 vm.calculate(binding.inputNro.text.toString().toDouble(),"+")
                 binding.textResult.text = vm.results.last().toString()
-                binding.inputNro.text.clear()
+                binding.inputNro.text = ""
+                sb.setLength(0)
                 binding.textOperations.text = vm.getOperation()
             }catch(e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
@@ -35,7 +38,8 @@ class MainActivity : AppCompatActivity() {
             try{
                 vm.calculate(binding.inputNro.text.toString().toDouble(),"-")
                 binding.textResult.text = vm.results.last().toString()
-                binding.inputNro.text.clear()
+                binding.inputNro.text = ""
+                sb.setLength(0)
                 binding.textOperations.text = vm.getOperation()
             }catch(e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
@@ -46,7 +50,8 @@ class MainActivity : AppCompatActivity() {
             try{
                 vm.calculate(binding.inputNro.text.toString().toDouble(),"*")
                 binding.textResult.text = vm.results.last().toString()
-                binding.inputNro.text.clear()
+                binding.inputNro.text = ""
+                sb.setLength(0)
                 binding.textOperations.text = vm.getOperation()
             }catch (e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
@@ -57,7 +62,8 @@ class MainActivity : AppCompatActivity() {
             try{
                 vm.calculate(binding.inputNro.text.toString().toDouble(),"/")
                 binding.textResult.text = vm.results.last().toString()
-                binding.inputNro.text.clear()
+                binding.inputNro.text = ""
+                sb.setLength(0)
                 binding.textOperations.text = vm.getOperation()
             }catch (e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
@@ -66,7 +72,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttomAc.setOnClickListener{
             vm.clear()
-            binding.inputNro.text.clear()
+            sb.setLength(0)
+            binding.inputNro.text = ""
             binding.textResult.text = ""
             binding.textOperations.text = ""
             vm.results.add(0.0)
@@ -76,49 +83,74 @@ class MainActivity : AppCompatActivity() {
             deleteChar()
         }
 
-        binding.buttomOne.setOnClickListener{
+        //       PROBLEMAS AL CALCULAR
+        binding.buttomEquals.setOnClickListener{
+            try{
+                if(vm.results.isNotEmpty())
+                    binding.inputNro.text = vm.results.last().toString()
+                else
+                    vm.results.add(binding.inputNro.text.toString().toDouble())
+                binding.textResult.text = binding.inputNro.text
+            }
+            catch(e: Exception){
+            }
 
+        }
+
+        binding.buttomCero.setOnClickListener{
+            addInput("0")
+        }
+
+        binding.buttomOne.setOnClickListener{
+            addInput("1")
         }
 
         binding.buttomTwo.setOnClickListener{
-
+            addInput("2")
         }
 
         binding.buttomThree.setOnClickListener{
-
+            addInput("3")
         }
 
         binding.buttomFour.setOnClickListener{
-
+            addInput("4")
         }
 
         binding.buttomFive.setOnClickListener{
-
+            addInput("5")
         }
 
         binding.buttomSix.setOnClickListener{
-
+            addInput("6")
         }
 
         binding.buttomSeven.setOnClickListener{
-
+            addInput("7")
         }
 
         binding.buttomEight.setOnClickListener{
-
+            addInput("8")
         }
 
         binding.buttomNine.setOnClickListener{
-
+            addInput("9")
         }
+
     }
 
     private fun deleteChar(){
         try{
-            binding.inputNro.setText(binding.inputNro.text.substring(0,binding.inputNro.text.length -1))
+            binding.inputNro.text = binding.inputNro.text.substring(0,binding.inputNro.text.length -1)
+            sb.setLength(sb.length - 1)
         }catch (e: Exception){
             Snackbar.make(binding.root, "No hay texto que borrar", Snackbar.LENGTH_SHORT).show()
         }
+    }
+
+    private fun addInput(value: String){
+        sb.append(value)
+        binding.inputNro.text = sb.toString()
     }
 
 
