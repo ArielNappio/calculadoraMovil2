@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             }catch(e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
-
         }
 
         binding.buttomSubstraction.setOnClickListener {
@@ -42,7 +41,6 @@ class MainActivity : AppCompatActivity() {
             }catch(e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
-
         }
 
         binding.buttomMultiplication.setOnClickListener {
@@ -54,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             }catch (e: Exception){
                 Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
-
         }
 
         binding.buttomDivision.setOnClickListener {
@@ -70,8 +67,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttomAc.setOnClickListener{
             vm.clear()
-            binding.textResult.text = "0.0"
-            binding.textOperations.text = "0.0"
+            binding.inputNro.text.clear()
+            binding.textResult.text = ""
+            binding.textOperations.text = ""
             vm.results.add(0.0)
         }
 
@@ -86,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         }catch (e: Exception){
             Snackbar.make(binding.root, "No hay texto que borrar", Snackbar.LENGTH_SHORT).show()
         }
-
     }
+
 
 }

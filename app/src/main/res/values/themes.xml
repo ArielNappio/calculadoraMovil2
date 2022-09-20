@@ -40,8 +40,9 @@
         <item name="android:inputType">numberDecimal</item>
         <item name="android:hint">Número</item>
         <item name="android:textSize">50sp</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">right</item>
         <item name="android:textColorHint">#757575</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Operation_String">
@@ -50,8 +51,9 @@
         <item name="android:layout_marginTop">10sp</item>
         <item name="android:hint">Operación...</item>
         <item name="android:textSize">30sp</item>
-        <item name="android:gravity">right</item>
+        <item name="android:gravity">left</item>
         <item name="android:textColorHint">#757575</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="Result_Text">
@@ -62,6 +64,7 @@
         <item name="android:textSize">40sp</item>
         <item name="android:gravity">right</item>
         <item name="android:textColorHint">#757575</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

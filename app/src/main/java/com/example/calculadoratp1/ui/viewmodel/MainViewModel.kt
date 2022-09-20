@@ -41,7 +41,7 @@ class MainViewModel():ViewModel(){
             sb.append(operations.last().nro1.toString())
             sb.append(" " + operations.last().operator + " ")
             sb.append(operations.last().nro2.toString())
-            sb.append(" =")
+            sb.append(" = ")
             return sb.toString()
         }
         return "No hay operaciones"

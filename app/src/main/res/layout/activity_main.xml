@@ -12,7 +12,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/light_grey"
+        android:background="@color/dark_blue"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,21 +27,23 @@
                 android:id="@+id/input_nro"
                 style="@style/Input_Text"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_operations"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/text_result"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/text_operations" />
 
             <TextView
                 android:id="@+id/text_operations"
                 style="@style/Operation_String"
-                app:layout_constraintBottom_toTopOf="@+id/text_result"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/input_nro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/input_nro" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_result"
@@ -52,7 +54,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_operations" />
+                app:layout_constraintTop_toBottomOf="@+id/input_nro" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
