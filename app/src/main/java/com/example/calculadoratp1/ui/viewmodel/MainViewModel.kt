@@ -5,52 +5,58 @@ import com.example.calculadoratp1.data.model.CalculatorModel
 
 class MainViewModel():ViewModel(){
 
-    val results = mutableListOf(0.0)
+    val results = mutableListOf<Double>()
     private val operations = mutableListOf<CalculatorModel>()
-    var resto: Double = 0.0
+    private var oper = arrayListOf<String>()
 
 
     fun calculate(nro: Double, operator: String){
         if(results.isNotEmpty()) {
             when (operator) {
                 "+" -> {
-                    resto = results.last()
                     results.add(results.last() + nro)
                 }
                 "-" -> {
-                    resto = results.last()
                     results.add(results.last() - nro)
                 }
                 "*" -> {
-                    resto = results.last()
                     results.add(results.last() * nro)
                 }
                 "/" -> {
-                    resto = results.last()
                     results.add(results.last() / nro)
                 }
             }
+        }else{
+            results.add(nro)
         }
-        operations.add(CalculatorModel(resto,nro,results.last(),operator))
+        oper.add(operator)
+        oper.add(nro.toString())
+        operations.add(CalculatorModel(oper,results.last()))
     }
-
 
     fun getOperation():String{
         if(operations.isNotEmpty()){
             var sb = StringBuilder()
+
+            for (actual in operations.last().operationsString){
+                sb.append(actual)
+                sb.append(" ")
+            }
+
+            /*
             sb.append(operations.last().nro1.toString())
             sb.append(" " + operations.last().operator + " ")
             sb.append(operations.last().nro2.toString())
             sb.append(" = ")
+             */
             return sb.toString()
         }
         return "No hay operaciones"
     }
 
-
     fun clear(){
         results.clear()
         operations.clear()
-        resto = 0.0
+        oper.clear()
     }
 }

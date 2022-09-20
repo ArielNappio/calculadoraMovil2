@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
             try{
                 vm.calculate(binding.inputNro.text.toString().toDouble(),"+")
                 binding.textResult.text = vm.results.last().toString()
-                binding.inputNro.text = Editable.Factory.getInstance().newEditable(vm.getOperation())
                 binding.inputNro.text.clear()
                 binding.textOperations.text = vm.getOperation()
             }catch(e: Exception){
@@ -76,9 +75,45 @@ class MainActivity : AppCompatActivity() {
         binding.buttomDel.setOnClickListener{
             deleteChar()
         }
+
+        binding.buttomOne.setOnClickListener{
+
+        }
+
+        binding.buttomTwo.setOnClickListener{
+
+        }
+
+        binding.buttomThree.setOnClickListener{
+
+        }
+
+        binding.buttomFour.setOnClickListener{
+
+        }
+
+        binding.buttomFive.setOnClickListener{
+
+        }
+
+        binding.buttomSix.setOnClickListener{
+
+        }
+
+        binding.buttomSeven.setOnClickListener{
+
+        }
+
+        binding.buttomEight.setOnClickListener{
+
+        }
+
+        binding.buttomNine.setOnClickListener{
+
+        }
     }
 
-    fun deleteChar(){
+    private fun deleteChar(){
         try{
             binding.inputNro.setText(binding.inputNro.text.substring(0,binding.inputNro.text.length -1))
         }catch (e: Exception){

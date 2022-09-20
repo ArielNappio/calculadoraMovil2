@@ -32,7 +32,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/text_result"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_operations" />
+                app:layout_constraintTop_toBottomOf="@+id/text_operations"/>
 
             <TextView
                 android:id="@+id/text_operations"
