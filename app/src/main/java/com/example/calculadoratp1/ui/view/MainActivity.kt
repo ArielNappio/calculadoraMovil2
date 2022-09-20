@@ -1,16 +1,13 @@
 package com.example.calculadoratp1.ui.view
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.viewModelScope
 import com.example.calculadoratp1.databinding.ActivityMainBinding
 import com.example.calculadoratp1.ui.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
-import org.koin.android.ext.android.inject
-import org.koin.dsl.module
 import java.lang.Exception
-import java.lang.RuntimeException
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,45 +22,69 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttomAddition.setOnClickListener {
             try{
-                vm.calcular(binding.inputNro.text.toString().toDouble(),"+")
+                vm.calculate(binding.inputNro.text.toString().toDouble(),"+")
                 binding.textResult.text = vm.results.last().toString()
+                binding.inputNro.text = Editable.Factory.getInstance().newEditable(vm.getOperation())
                 binding.inputNro.text.clear()
+                binding.textOperations.text = vm.getOperation()
             }catch(e: Exception){
+                Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
 
         }
 
         binding.buttomSubstraction.setOnClickListener {
             try{
-                vm.calcular(binding.inputNro.text.toString().toDouble(),"-")
+                vm.calculate(binding.inputNro.text.toString().toDouble(),"-")
                 binding.textResult.text = vm.results.last().toString()
                 binding.inputNro.text.clear()
+                binding.textOperations.text = vm.getOperation()
             }catch(e: Exception){
-
+                Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
 
         }
 
         binding.buttomMultiplication.setOnClickListener {
             try{
-                vm.calcular(binding.inputNro.text.toString().toDouble(),"*")
+                vm.calculate(binding.inputNro.text.toString().toDouble(),"*")
                 binding.textResult.text = vm.results.last().toString()
                 binding.inputNro.text.clear()
+                binding.textOperations.text = vm.getOperation()
             }catch (e: Exception){
-
+                Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
 
         }
 
         binding.buttomDivision.setOnClickListener {
             try{
-                vm.calcular(binding.inputNro.text.toString().toDouble(),"/")
+                vm.calculate(binding.inputNro.text.toString().toDouble(),"/")
                 binding.textResult.text = vm.results.last().toString()
                 binding.inputNro.text.clear()
+                binding.textOperations.text = vm.getOperation()
             }catch (e: Exception){
-
+                Snackbar.make(binding.root, "Completa el campo", Snackbar.LENGTH_SHORT).show()
             }
+        }
 
+        binding.buttomAc.setOnClickListener{
+            vm.clear()
+            binding.textResult.text = "0.0"
+            binding.textOperations.text = "0.0"
+            vm.results.add(0.0)
+        }
+
+        binding.buttomDel.setOnClickListener{
+            deleteChar()
+        }
+    }
+
+    fun deleteChar(){
+        try{
+            binding.inputNro.setText(binding.inputNro.text.substring(0,binding.inputNro.text.length -1))
+        }catch (e: Exception){
+            Snackbar.make(binding.root, "No hay texto que borrar", Snackbar.LENGTH_SHORT).show()
         }
 
     }

@@ -49,7 +49,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">10sp</item>
         <item name="android:hint">Operación...</item>
-        <item name="android:textSize">40sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:gravity">right</item>
         <item name="android:textColorHint">#757575</item>
     </style>
